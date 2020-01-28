@@ -1,27 +1,15 @@
 import React from "react";
-const cardStyle = {
-  backgroundColor: "light-grey",
-  border: "1px solid grey",
-  borderRadius: "5px",
-  padding: "20px",
-  margin: "20px",
-  minHeight: "25em",
-  maxHeight: "25em",
-  minWidth: "20em",
-  maxWidth: "20em",
-  float: "right",
-  textAlign: "center"
-};
+import "./Bookcard.css";
+
 const Bookcard = props => {
   const authors = props.book.authors ? props.book.authors : null;
   return (
-    <div style={cardStyle}>
+    <div className="Bookcard">
       {props.book.imageLinks && (
         <img src={props.book.imageLinks.smallThumbnail} alt="Book Cover" />
       )}
-      <h3>{props.book.title}</h3>
-      <br />
-      {authors && authors.join(", ")}
+      <h4>{props.book.title}</h4>
+      <i>{authors && `By ${authors.join(", ")}`}</i>
       <br />
       {props.book.publisher && `Published by ${props.book.publisher}`}
       <br />

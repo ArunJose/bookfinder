@@ -2,12 +2,13 @@ import React from "react";
 import axios from "axios";
 import { API_KEY } from "./config";
 import Bookcards from "./Bookcards";
+import "./App.css";
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchTerm: "Malayalam",
+      searchTerm: "",
       books: [],
       noOfBooks: 0,
       error: ""
@@ -76,6 +77,7 @@ export default class App extends React.Component {
     return (
       <div className="App">
         <h1>BOOK FINDER</h1>
+        <br />
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
@@ -83,10 +85,11 @@ export default class App extends React.Component {
             value={this.state.searchTerm}
             onChange={this.handleInput}
           />
+          <br />
           <button>Search</button>
         </form>
         <br />
-        {this.state.noOfBooks === 0 ? (
+        {this.state.noOfBooks === 0 || this.state.error ? (
           <p>{this.state.error}</p>
         ) : (
           <Bookcards books={this.state.books} />
