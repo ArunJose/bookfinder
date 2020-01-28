@@ -4,6 +4,10 @@ An application to search books using the official Google Books API.
 
 Books are displayed with title, thumbnail image, author name(s), publisher name and a link to learn more about the book.
 
+## Dependencies
+
+Axios for making API requests.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
