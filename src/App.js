@@ -21,11 +21,8 @@ export default class App extends React.Component {
         `${API_URL}?q=${this.state.searchTerm}&key=${API_KEY}&startIndex=0&maxResults=40`
       )
       .then(res => {
-        //console.log(res.data);
-
         if (res.data.totalItems > 0) {
           let rawBooksData = [...res.data.items];
-          console.log(rawBooksData);
           const books = rawBooksData.map(book => ({
             id: book.id,
             publisher: book.volumeInfo.publisher,
