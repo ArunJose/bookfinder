@@ -1,8 +1,8 @@
 import React from "react";
 import axios from "axios";
-import { API_KEY } from "./config";
 import Bookcards from "./Bookcards";
 import "./App.css";
+//import { API_KEY } from "./config";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -16,10 +16,15 @@ export default class App extends React.Component {
   }
   fetchBooks = async () => {
     const API_URL = `https://www.googleapis.com/books/v1/volumes`;
+    /*
+    
+    If API_KEY needs to be used, obtain a Google API and add it to config.js file.
+    Then, use this URL in the following Axios.get function.
+    `${API_URL}?q=${this.state.searchTerm}&key=${API_KEY}&startIndex=0&maxResults=40`
+    
+    */
     axios
-      .get(
-        `${API_URL}?q=${this.state.searchTerm}&key=${API_KEY}&startIndex=0&maxResults=40`
-      )
+      .get(`${API_URL}?q=${this.state.searchTerm}&startIndex=0&maxResults=40`)
       .then(res => {
         if (res.data.totalItems > 0) {
           let rawBooksData = [...res.data.items];
