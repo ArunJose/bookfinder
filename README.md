@@ -4,7 +4,7 @@
 
 An application to search books using the official Google Books API.
 
-[Live link](arunjose.github.io/bookfinder)
+[Live link](https://arunjose.github.io/bookfinder)
 
 ## Features
 
